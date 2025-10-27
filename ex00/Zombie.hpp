@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:20:37 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/27 15:19:30 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/27 15:53:50 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ class Zombie {
 		
 	public:
 		Zombie();
+		Zombie(std::string name);
 		~Zombie();
 		Zombie*		newZombie( std::string name );
 		void		randomChump( std::string name );
 		std::string	get_name(void);
+		void		set_name(std::string name);
 		void		announce(void);
 };
 
