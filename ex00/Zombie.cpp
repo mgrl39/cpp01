@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:22:11 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/27 16:34:21 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/27 16:40:02 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ Zombie::Zombie(std::string name)
 	this->name = name;
 }
 
+// TODO: idk if do the delete here or not.
 Zombie::~Zombie()
 {
-	std::cout << this->name << " : Destroyed..." << std::endl;
-	delete this;
+	std::cout << this->name << ": Destroyed..." << std::endl;
+	//delete this;
 }
 
 std::string	Zombie::get_name(void)
