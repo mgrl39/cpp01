@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:31:43 by meghribe          #+#    #+#              #
-#    Updated: 2025/10/27 15:46:49 by meghribe         ###   ########.fr        #
+#    Updated: 2025/10/27 16:08:06 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,20 @@ LDFLAGS = Zombie.hpp
 
 all: $(NAME)
 
-$(NAME): $(OBJS) Makefile
+$(OBJS): $(SRCS)
+	$(CCX) $(CXXFLAGS) $(LDFLAGS)
+
+$(NAME): $(OBJS) Makefile $(LDFLAGS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJS) $(LDFLAGS)
 
+.PHONY: clean
 clean:
 	rm -f $(OBJS)
 
+.PHONY: fclean
 fclean: clean
 	rm -f $(NAME)
+	
+.PHONY: re
+re:
+	fclean all
