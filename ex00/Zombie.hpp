@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:20:37 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 15:24:11 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/27 15:08:55 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Zombie {
 		
 	public:
 		Zombie();
+		std::string	get_name(void);
 		void	announce(void);
 };
 
