@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:31:43 by meghribe          #+#    #+#              #
-#    Updated: 2025/10/27 16:08:06 by meghribe         ###   ########.fr        #
+#    Updated: 2025/10/27 16:10:50 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,6 @@ OBJS = main.o newZombie.o randomChump.o Zombie.o
 LDFLAGS = Zombie.hpp
 
 all: $(NAME)
-
-$(OBJS): $(SRCS)
-	$(CCX) $(CXXFLAGS) $(LDFLAGS)
 
 $(NAME): $(OBJS) Makefile $(LDFLAGS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJS) $(LDFLAGS)

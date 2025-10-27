@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:22:11 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/27 15:56:29 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/27 16:10:20 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ Zombie::Zombie(std::string name)
 	this->name = name;
 }
 
-Zombie::~Zombie() {}
+Zombie::~Zombie()
+{
+	std::cout << name << " : Destroyed..." << std::endl;
+}
 
 std::string	Zombie::get_name(void)
 {
