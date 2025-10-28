@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:28:38 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/28 16:17:30 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/28 17:41:04 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	main(int argc, char *argv[])
 
 		my_horde = zombieHorde(5, "Foo");
 		delete [] my_horde;
-		return (0);
+		return ((void)argc, (void)argv, 0);
 }
