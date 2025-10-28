@@ -6,20 +6,24 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 17:03:55 by meghribe          #+#    #+#              #
-#    Updated: 2025/10/27 17:24:37 by meghribe         ###   ########.fr        #
+#    Updated: 2025/10/28 17:44:08 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = changethislater
+NAME = brain
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+CXXFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 SRCS= main.cpp
-OBJS= main.o
+OBJS= $(SRCS:.cpp=.o)
 
 .PHONY: all
 all: $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+
+%.o:%.cpp Makefile $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:
@@ -30,5 +34,4 @@ fclean: clean
 	rm -f $(NAME)
 
 .PHONY: re
-re:
-	fclean all
+re: fclean all

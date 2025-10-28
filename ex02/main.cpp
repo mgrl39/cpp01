@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:11:53 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/28 15:11:53 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/28 17:43:26 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ int	main(int argc, char *argv[])
 	std::cout << *stringPTR << std::endl;
 	std::cout << "The value pointed to by stringREF:" << std::endl;
 	std::cout << stringREF << std::endl;
-	return (0);
+	return ((void)argc, (void)argv, 0);
 }
