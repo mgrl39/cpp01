@@ -6,18 +6,24 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:44:47 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/28 17:56:52 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/29 17:45:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
+#ifndef WEAPON_HPP
+# define WEAPON_HPP 
+
+# include <string>
 
 class Weapon
 {
 	private:
 		std::string	type;
 	public:
-		std::string	get_type(void);
-		void		set_type(std::string type);
+		Weapon(std::string	type);
+		std::string	getType(void);
+		void		setType(std::string type);
 
 };
+
+#endif
