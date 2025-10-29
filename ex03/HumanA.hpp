@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:19 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/29 17:32:14 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/29 18:06:43 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ class HumanA
 		HumanA(std::string name, Weapon weapon);
 		HumanA(Weapon weapon);
 		~HumanA();
-		std::string	get_name(void);
-		void		set_name(std::string);
-		Weapon	get_weapon(void);
-		void		set_weapon(Weapon weapon);
+		std::string	getName(void) const;
+		void		setName(std::string);
+		Weapon	getWeapon(void) const;
+		void		setWeapon(Weapon weapon);
 		void	attack(void);
 };
 
