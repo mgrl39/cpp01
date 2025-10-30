@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:26 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/30 18:22:21 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/30 19:25:51 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string>
 #include <fstream>
 #include <filesystem>
+#include <sstream>
 
 static void	show_usage(char *argv)
 {
@@ -39,7 +40,9 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	while (std::getline(file, line))
+	{
 		std::cout << line << "\n";
+	}
 	file.close();
 	return (0);
 }
