@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:04:52 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/28 17:25:07 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/30 19:31:55 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	&this::warning();
+	(void)level;
+	//&this::warning();
 }

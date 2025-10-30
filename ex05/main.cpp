@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:49:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/28 16:50:40 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/30 19:32:04 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	main(int argc, char *argv[])
 {
-	return (0);
+	return ((void)argc, (void)argv, 0);
 }
