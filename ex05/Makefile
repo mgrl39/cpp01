@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 16:50:44 by meghribe          #+#    #+#              #
-#    Updated: 2025/10/30 19:29:46 by meghribe         ###   ########.fr        #
+#    Updated: 2025/10/30 19:33:08 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ clean:
 	rm -f $(OBJS)
 
 .PHONY: fclean
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 .PHONY: re
