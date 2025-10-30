@@ -6,12 +6,14 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:26 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/28 18:18:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/30 18:22:21 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <filesystem>
 
 static void	show_usage(char *argv)
 {
@@ -22,10 +24,23 @@ static void	show_usage(char *argv)
 	std::cout << argv << " filename s1 s2" << std::endl;
 	std::cout << msg << std::endl;
 }
+
 int	main(int argc, char *argv[])
 {
-	if (argc != 3)
-		show_usage(argv[0]);
+	std::ifstream	file;
+	std::string	line;
+
+	if (argc != 4)
+		return (show_usage(argv[0]), 0);
+	file.open(argv[1]);
+	if (!file.is_open())
+	{
+		std::cout << "Error opening file: " << argv[1] << std::endl;
+		return (1);
+	}
+	while (std::getline(file, line))
+		std::cout << line << "\n";
+	file.close();
 	return (0);
 }
 
