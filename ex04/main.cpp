@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:26 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/30 19:25:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/31 21:16:44 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ int	main(int argc, char *argv[])
 		std::cout << "Error opening file: " << argv[1] << std::endl;
 		return (1);
 	}
+	if (!std::getline(file, line))
+		std::cout << argv[1] << " is empty" << std::endl;
 	while (std::getline(file, line))
 	{
+		//line.substr(0, line.
 		std::cout << line << "\n";
 	}
 	file.close();
