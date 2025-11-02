@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:25 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/29 18:06:52 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/02 21:12:26 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ class HumanB
 {
 	private:
 		std::string	name;
-		Weapon	weapon;
+		Weapon	*weapon;
 	public:
 		HumanB(std::string name);
 		HumanB();
 		~HumanB();
 		std::string	getName(void) const;
 		void		setName(std::string name);
-		Weapon	getWeapon(void) const;
-		void		setWeapon(Weapon weapon);
+		Weapon	getWeapon(void);
+		void		setWeapon(Weapon &weapon);
 		void	attack(void);
 };
 
