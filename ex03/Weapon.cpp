@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:30 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/29 18:12:46 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:29:57 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Weapon::Weapon(std::string type)
 
 Weapon::~Weapon() {};
 
-std::string	Weapon::getType(void)
+std::string	Weapon::getType(void) const
 {
 	return (this->type);
 }

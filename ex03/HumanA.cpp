@@ -6,21 +6,21 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:41:52 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/29 18:15:57 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:45:18 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon)
+HumanA::HumanA(std::string name, Weapon &weapon): weapon(weapon)
 {
 	this->name = name;
-	this->weapon = weapon;
+	//this->weapon = weapon;
 }
 
-HumanA::HumanA(Weapon weapon)
+HumanA::HumanA(Weapon &weapon): weapon(weapon)
 {
-	this->weapon = weapon;
+	//this->weapon = weapon;
 }
 
 HumanA::~HumanA() {}

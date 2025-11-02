@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:44:47 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/29 18:08:25 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:29:54 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Weapon
 		Weapon();
 		~Weapon();
 		Weapon(std::string	type);
-		std::string	getType(void);
+		std::string	getType(void) const;
 		void		setType(std::string type);
 
 };
