@@ -6,13 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:21 by meghribe          #+#    #+#             */
-/*   Updated: 2025/11/02 21:27:17 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/02 21:35:18 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name)
+HumanB::HumanB(std::string name): weapon(NULL)
 {
 	this->name = name;
 }
@@ -51,6 +51,7 @@ void	HumanB::attack(void)
 
 	msg += this->name;
 	msg += " attacks with their ";
-	msg += this->weapon->getType();
+	msg += this->weapon ? this->weapon->getType() : \
+		"UPS, attacks WITHOUT WEAPON?? WOW... amazing...";
 	std::cout << msg << std::endl;
 }
