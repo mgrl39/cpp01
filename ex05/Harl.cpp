@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:04:52 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/30 19:31:55 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/02 22:12:33 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,30 @@ void	Harl::error(void)
 	std::cout << msg << std::endl;
 }
 
+typedef void (Harl::*pointerMemberFunction)(void);
+
 void	Harl::complain(std::string level)
 {
-	(void)level;
+	int	i;
+
+	std::string	comment_levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	pointerMemberFunction functions[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	i = 0;
+	while (i < 4)
+	{
+		if (level == comment_levels[i])
+		{
+			//*(functions[i])();
+			//(functions[i])();
+			//(functions[i])();
+			//(*(functions[i]))();
+			//(functions[i])();
+			break ;
+		}
+		i++;
+	}
 	//&this::warning();
 }
+
+Harl::Harl() {}
+Harl::~Harl() {}
