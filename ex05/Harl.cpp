@@ -6,36 +6,45 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:04:52 by meghribe          #+#    #+#             */
-/*   Updated: 2025/11/03 15:03:36 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/03 18:49:25 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <iostream>
 
-typedef void (Harl::*pointerMemberFunction)(void);
 
 void	Harl::complain(std::string level)
 {
 	int	i;
 
 	std::string	comment_levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	pointerMemberFunction functions[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	//	void	(*functptr[])() = { &Harl::debug, info, warning, error };
-	ptrToMemberFunc[0] = &Harl::debug;
+	/*
 	void	(Harl::*display_functions[4])() = {
 		&Harl::debug,
 		&Harl::info,
 		&Harl::warning,
 		&Harl::error
-	};
+	};*/
+	void	(Harl::*func_ptr[4])(void);
+	func_ptr[0] = &Harl::debug;
+	func_ptr[1] = &Harl::info;
+	func_ptr[2] = &Harl::warning;
+	func_ptr[3] = &Harl::error;
 	i = 0;
 	while (i < 4)
 	{
 		if (level == comment_levels[i])
 		{
+			(void)functions;
+			this->functions[i]();
+//			*((functions[i])(void));
+//			func_ptr[i](void);
+			//(*func_ptr[i])();
+			/*
 			(complain_text[0](this))();
 			(*complain_text[0]());
+			*/
 //			*(complain_text[i]());
 			/*
 			(ptrToMemberFunc[0])();
@@ -61,9 +70,11 @@ void	Harl::complain(std::string level)
 			*(pointerMemberFunction[0]());
 			pointerMemberFunction[0]();
 			*/
-			void (Harl::*ptrToMemberFunc)(void) = &Harl::debug;
+			//void (Harl::*ptrToMemberFunc)(void) = &Harl::debug;
 			//*pointerMemberFunction();
 			//display_functions[0];
+			//display_functions[0]();
+			//(*display_functions[0])();
 			break ;
 		}
 		i++;
