@@ -6,13 +6,70 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:04:52 by meghribe          #+#    #+#             */
-/*   Updated: 2025/11/02 22:12:33 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/03 15:03:36 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-
 #include <iostream>
+
+typedef void (Harl::*pointerMemberFunction)(void);
+
+void	Harl::complain(std::string level)
+{
+	int	i;
+
+	std::string	comment_levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	pointerMemberFunction functions[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	//	void	(*functptr[])() = { &Harl::debug, info, warning, error };
+	ptrToMemberFunc[0] = &Harl::debug;
+	void	(Harl::*display_functions[4])() = {
+		&Harl::debug,
+		&Harl::info,
+		&Harl::warning,
+		&Harl::error
+	};
+	i = 0;
+	while (i < 4)
+	{
+		if (level == comment_levels[i])
+		{
+			(complain_text[0](this))();
+			(*complain_text[0]());
+//			*(complain_text[i]());
+			/*
+			(ptrToMemberFunc[0])();
+			ptrToMemberFunc()[0];
+			ptrToMemberFunc[0]();
+			(*ptrToMemberFunc[0])();
+			(&ptrToMemberFunc[0])();
+			*(ptrToMemberFunc[0])();
+			*/
+			//*(functions[i])();
+			//(functions[i])();
+			//(functions[i])();
+			//(*(functions[i]))();
+			//(functions[i])();
+			//(*functptr[0])();
+			/*
+			std::cout << "true" << std::endl;
+			(void)(&(functions)[0])();
+			(void)((functions)[0])();
+			*functions[0]();
+			pointerMemberFunction()[0];
+			*pointerMemberFunction()[0];
+			*(pointerMemberFunction[0]());
+			pointerMemberFunction[0]();
+			*/
+			void (Harl::*ptrToMemberFunc)(void) = &Harl::debug;
+			//*pointerMemberFunction();
+			//display_functions[0];
+			break ;
+		}
+		i++;
+	}
+	//&this::warning();
+}
 
 void	Harl::debug(void)
 {
@@ -45,31 +102,5 @@ void	Harl::error(void)
 	msg = "This is unacceptable! I want to speak to the manager now.";
 	std::cout << msg << std::endl;
 }
-
-typedef void (Harl::*pointerMemberFunction)(void);
-
-void	Harl::complain(std::string level)
-{
-	int	i;
-
-	std::string	comment_levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	pointerMemberFunction functions[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	i = 0;
-	while (i < 4)
-	{
-		if (level == comment_levels[i])
-		{
-			//*(functions[i])();
-			//(functions[i])();
-			//(functions[i])();
-			//(*(functions[i]))();
-			//(functions[i])();
-			break ;
-		}
-		i++;
-	}
-	//&this::warning();
-}
-
 Harl::Harl() {}
 Harl::~Harl() {}
