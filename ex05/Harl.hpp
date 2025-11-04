@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:52:04 by meghribe          #+#    #+#             */
-/*   Updated: 2025/11/03 18:49:12 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/04 16:35:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ class Harl
 		void	info(void);
 		void	warning(void);
 		void	error(void);
-		typedef void (Harl::*pointerMemberFunction)(void);
-		pointerMemberFunction functions[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	public:
 		Harl();
