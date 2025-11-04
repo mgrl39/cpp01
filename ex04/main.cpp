@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:26 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/31 21:16:44 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/04 17:54:45 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,55 @@ static void	show_usage(char *argv)
 {
 	std::string	msg;
 
-	msg = "takes filename and replaces every occurence of s1 with s2";
 	std::cout << "Usage:" << std::endl;
-	std::cout << argv << " filename s1 s2" << std::endl;
+	std::cout << "\t" << argv << " filename s1 s2" << std::endl;
+	msg = "takes filename and replaces every occurence of s1 with s2";
 	std::cout << msg << std::endl;
+}
+
+/* 
+ * i is unsigned long because when is int shows this message:
+ * 	error: comparison of integers of different signs: 'int' and 'const'
+ */
+void	replace_all(std::string &s,const std::string &search,const std::string &replace)
+{
+	unsigned long i;
+
+	i = 0;
+	while (1)
+	{
+		i = s.find(search, i);
+		if (i == std::string::npos)
+			break ;
+		s.erase(i, search.length());
+		s.insert(i, replace);
+		i += replace.length();
+	}
+}
+
+int	check_args(int argc, char *argv[])
+{
+	std::string	str_to_check;
+	std::string	error_text = "";
+	std::string	errors[3] = {"name of file", "old text", "new text"};
+	int		i;
+
+	if (argc != 4)
+		return (1);
+	i = 1;
+	while (i < 4)
+	{
+		str_to_check = argv[i];
+		if (str_to_check.length() == 0)
+			error_text = "ERROR: is necessary the " + errors[i - 1];
+		i++;
+	}
+	if (error_text != "")
+	{
+		std::cout << error_text << std::endl;
+		return (1);
+	}
+	return (0);
 }
 
 int	main(int argc, char *argv[])
@@ -31,8 +76,8 @@ int	main(int argc, char *argv[])
 	std::ifstream	file;
 	std::string	line;
 
-	if (argc != 4)
-		return (show_usage(argv[0]), 0);
+	if (check_args(argc, argv))
+		return (show_usage(argv[0]), 1);
 	file.open(argv[1]);
 	if (!file.is_open())
 	{
@@ -43,9 +88,12 @@ int	main(int argc, char *argv[])
 		std::cout << argv[1] << " is empty" << std::endl;
 	while (std::getline(file, line))
 	{
-		//line.substr(0, line.
-		std::cout << line << "\n";
+		if (line.length() == 0)
+			continue ;
+		replace_all(line, argv[2], argv[3]);
+		std::cout << line << std::endl;
 	}
+	std::cout << std::endl;
 	file.close();
 	return (0);
 }
