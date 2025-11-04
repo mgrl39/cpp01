@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:26 by meghribe          #+#    #+#             */
-/*   Updated: 2025/11/04 17:54:45 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/04 19:14:02 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static void	show_usage(char *argv)
  * i is unsigned long because when is int shows this message:
  * 	error: comparison of integers of different signs: 'int' and 'const'
  */
-void	replace_all(std::string &s,const std::string &search,const std::string &replace)
+void	replace_all(std::string &s, \
+		const std::string &search,const std::string &replace)
 {
 	unsigned long i;
 
@@ -55,13 +56,12 @@ int	check_args(int argc, char *argv[])
 
 	if (argc != 4)
 		return (1);
-	i = 1;
-	while (i < 4)
+	i = 0;
+	while (++i < 4)
 	{
 		str_to_check = argv[i];
 		if (str_to_check.length() == 0)
 			error_text = "ERROR: is necessary the " + errors[i - 1];
-		i++;
 	}
 	if (error_text != "")
 	{
@@ -74,7 +74,9 @@ int	check_args(int argc, char *argv[])
 int	main(int argc, char *argv[])
 {
 	std::ifstream	file;
+	std::ofstream	final_file;
 	std::string	line;
+	std::string	file_changed;
 
 	if (check_args(argc, argv))
 		return (show_usage(argv[0]), 1);
@@ -86,13 +88,24 @@ int	main(int argc, char *argv[])
 	}
 	if (!std::getline(file, line))
 		std::cout << argv[1] << " is empty" << std::endl;
+	do 
+	{
+		if (line.length() == 0)
+			continue ;
+		replace_all(line, argv[2], argv[3]);
+		file_changed += line + '\n';
+	} 
+	while (std::getline(file, line));
+	/*
 	while (std::getline(file, line))
 	{
 		if (line.length() == 0)
 			continue ;
 		replace_all(line, argv[2], argv[3]);
-		std::cout << line << std::endl;
-	}
+		file_changed += line;
+	}*/
+	final_file.open(argv[1]);
+	final_file << file_changed;
 	std::cout << std::endl;
 	file.close();
 	return (0);
