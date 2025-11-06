@@ -6,13 +6,13 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/29 18:37:45 by meghribe          #+#    #+#              #
-#    Updated: 2025/10/29 19:24:53 by meghribe         ###   ########.fr        #
+#    Updated: 2025/11/06 16:01:16 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := my_sed
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -g -fsanitize=address
+CXXFLAGS := -Wall -Wextra -Werror -g -fsanitize=address -std=c++98
 SRCS := main.cpp
 OBJS := $(SRCS:.cpp=.o)
 

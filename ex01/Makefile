@@ -6,13 +6,13 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 17:34:46 by meghribe          #+#    #+#              #
-#    Updated: 2025/10/28 17:40:51 by meghribe         ###   ########.fr        #
+#    Updated: 2025/11/06 16:00:56 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := zombie_horde
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -g -fsanitize=address
+CXXFLAGS := -Wall -Wextra -Werror -g -fsanitize=address -std=c++98
 SRCS :=  main.cpp Zombie.cpp zombieHorde.cpp
 OBJS := $(SRCS:.cpp=.o)
 LDFLAGS := Zombie.hpp
