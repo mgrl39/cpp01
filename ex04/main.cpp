@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:26 by meghribe          #+#    #+#             */
-/*   Updated: 2025/11/04 19:14:02 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/06 15:55:10 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,21 +93,18 @@ int	main(int argc, char *argv[])
 		if (line.length() == 0)
 			continue ;
 		replace_all(line, argv[2], argv[3]);
-		file_changed += line + '\n';
+		file_changed += line;
+		if(!file.eof() && !file.fail())
+			file_changed.push_back('\n');
 	} 
 	while (std::getline(file, line));
-	/*
-	while (std::getline(file, line))
-	{
-		if (line.length() == 0)
-			continue ;
-		replace_all(line, argv[2], argv[3]);
-		file_changed += line;
-	}*/
 	final_file.open(argv[1]);
+	if (!final_file.is_open())
+	{
+		std::cout << "Error to write in file: " << argv[1] << std::endl;
+		return (1);
+	}
 	final_file << file_changed;
-	std::cout << std::endl;
 	file.close();
 	return (0);
 }
-
