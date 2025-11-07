@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:42:26 by meghribe          #+#    #+#             */
-/*   Updated: 2025/11/06 15:55:10 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/11/07 22:55:54 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ int	check_args(int argc, char *argv[])
 	{
 		str_to_check = argv[i];
 		if (str_to_check.length() == 0)
+		{
 			error_text = "ERROR: is necessary the " + errors[i - 1];
+			break ;
+		}
 	}
 	if (error_text != "")
 	{
@@ -80,7 +83,7 @@ int	main(int argc, char *argv[])
 
 	if (check_args(argc, argv))
 		return (show_usage(argv[0]), 1);
-	file.open(argv[1]);
+	file.open(argv[1], std::ios::in);
 	if (!file.is_open())
 	{
 		std::cout << "Error opening file: " << argv[1] << std::endl;
@@ -91,14 +94,17 @@ int	main(int argc, char *argv[])
 	do 
 	{
 		if (line.length() == 0)
+		{
+			file_changed.push_back('\n');
 			continue ;
+		}
 		replace_all(line, argv[2], argv[3]);
 		file_changed += line;
 		if(!file.eof() && !file.fail())
 			file_changed.push_back('\n');
 	} 
 	while (std::getline(file, line));
-	final_file.open(argv[1]);
+	final_file.open((argv[1] + (std::string)"replace").c_str(), std::ios::out);
 	if (!final_file.is_open())
 	{
 		std::cout << "Error to write in file: " << argv[1] << std::endl;
@@ -106,5 +112,6 @@ int	main(int argc, char *argv[])
 	}
 	final_file << file_changed;
 	file.close();
+	final_file.close();
 	return (0);
 }

@@ -6,13 +6,13 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 14:42:28 by meghribe          #+#    #+#              #
-#    Updated: 2025/11/06 16:01:11 by meghribe         ###   ########.fr        #
+#    Updated: 2025/11/07 23:07:26 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := weapon
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -g -fsanitize=address -std=c++98
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g #-fsanitize=address
 SRCS := HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
 OBJS := $(SRCS:.cpp=.o)
 LDFLAGS := HumanA.hpp HumanB.hpp Weapon.hpp
